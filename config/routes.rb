@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :messages do
         member do
           post :edit
+          post :show
         end
       end
 end

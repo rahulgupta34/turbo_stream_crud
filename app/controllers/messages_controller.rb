@@ -8,6 +8,11 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("messages", partial: "messages/message", locals: { message: @message })
+      end
+    end
   end
 
   # GET /messages/new
